@@ -1,32 +1,32 @@
 package com.example.peoplelistmvvm.model;
 
 public class ComicCharacter {
-    private String firstName;
-    private String lastName;
+    private String name;
+    private String city;
     private String image;
-    private String AlterEgo;
+    private String alterEgo;
 
     public ComicCharacter(String firstName, String lastName, String image, String alterEgo) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name = firstName;
+        this.city = lastName;
         this.image = image;
-        AlterEgo = alterEgo;
+        this.alterEgo = alterEgo;
     }
 
     public String getFirstName() {
-        return firstName;
+        return name;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.name = firstName;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getCity() {
+        return city;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getImage() {
@@ -38,10 +38,10 @@ public class ComicCharacter {
     }
 
     public String getAlterEgo() {
-        return AlterEgo;
+        return alterEgo;
     }
 
     public void setAlterEgo(String alterEgo) {
-        AlterEgo = alterEgo;
+        this.alterEgo = alterEgo;
     }
 }
