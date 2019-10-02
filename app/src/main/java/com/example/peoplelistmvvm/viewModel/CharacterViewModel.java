@@ -1,6 +1,9 @@
 package com.example.peoplelistmvvm.viewModel;
 
+import android.util.Log;
+
 import com.example.peoplelistmvvm.repository.Repository;
+import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -13,13 +16,14 @@ public class CharacterViewModel {
 
     }
 
-    public Call<List<String>> getCharacterById(int characterID){
+    public Call<JsonObject> getCharacterById(int characterID){
 
+        Log.e("IN THE VIEWMODEL", "getCharacterById: characterID is " + characterID );
         return Repository.getInstance()
                 .getCharacterById(characterID);
     }
 
-    public Call<List<String>> getCharacterImage(int characterID){
+    public Call<JsonObject> getCharacterImage(int characterID){
         return Repository.getInstance()
                 .getImage(characterID);
     }

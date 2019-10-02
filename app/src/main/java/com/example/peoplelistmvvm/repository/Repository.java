@@ -1,7 +1,11 @@
 package com.example.peoplelistmvvm.repository;
 
+import android.util.Log;
+
+import com.example.peoplelistmvvm.Utils.Constants;
 import com.example.peoplelistmvvm.model.CharacterInterface;
 import com.example.peoplelistmvvm.retrofit.RetrofitInstance;
+import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -24,14 +28,17 @@ public class Repository implements CharacterInterface {
 
 
     @Override
-    public Call<List<String>> getCharacterById(int characterID) {
+    public Call<JsonObject> getCharacterById(int characterID) {
+        Log.e("Repository is fine", "getCharacterById: in Repository :" + characterID );
+        Log.e("Next is Interface", "method call to interface is :" + Constants.CHARACTER_PATH +"  where id is " + characterID );
+
         return RetrofitInstance.getInstance()
                 .create(CharacterInterface.class)
                 .getCharacterById(characterID);
     }
 
     @Override
-    public Call<List<String>> getImage(int characterID) {
+    public Call<JsonObject> getImage(int characterID) {
         return RetrofitInstance.getInstance()
                 .create(CharacterInterface.class)
                 .getImage(characterID);

@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">PeopleListMVVM</string>
-    <string name="name">Name: </string>
-    <string name="alterEgo">Alter Ego: </string>
+    <string name="name">Alias : </string>
+    <string name="fullName">Full Name: </string>
     <string name="city">City: </string>
+    <string name="intelligence">Intelligence: </string>
+    <string name="strength">Strength: </string>
+    <string name="speed">Speed: </string>
+    <string name="durability">Durability: </string>
+    <string name="power">Power: </string>
+    <string name="combat">Combat: </string>
 </resources>

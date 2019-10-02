@@ -2,64 +2,224 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="250dp">
+    android:layout_height="350dp">
 
     <ImageView
         android:id="@+id/iv_character_image"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@mipmap/ic_launcher_round"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/gl_imageEnd"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_alter_ego"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/alterEgo"
-        android:textSize="20sp"
-        android:gravity="center_vertical"
-        android:padding="5dp"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintBottom_toTopOf="@id/tv_name"
+        app:layout_constraintBottom_toTopOf="@id/gl_imageBottom"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/gl_imageEnd"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:padding="5dp"
         android:text="@string/name"
-        android:textSize="20sp"
+        android:textSize="18sp"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@id/tv_full_name"
+        app:layout_constraintEnd_toStartOf="@id/gl_textDivide"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gl_imageBottom" />
+
+    <TextView
+        android:id="@+id/tv_full_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:padding="5dp"
+        android:text="@string/fullName"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/tv_city"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/gl_imageEnd"
-        app:layout_constraintTop_toBottomOf="@id/tv_alter_ego" />
+        app:layout_constraintEnd_toStartOf="@id/gl_textDivide"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
 
     <TextView
         android:id="@+id/tv_city"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:text="@string/city"
-        android:textSize="20sp"
         android:padding="5dp"
+        android:text="@string/city"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/gl_textDivide"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_full_name" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/powerStatContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/gl_imageEnd"
-        app:layout_constraintTop_toBottomOf="@id/tv_name" />
+        app:layout_constraintStart_toEndOf="@id/gl_textDivide"
+        app:layout_constraintTop_toBottomOf="@id/gl_imageBottom">
 
+        <TextView
+            android:id="@+id/tv_intelligence"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/intelligence"
+            app:layout_constraintBottom_toTopOf="@id/tv_strength"
+            app:layout_constraintEnd_toStartOf="@id/gl_statStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/pb_intelligence"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:max="100"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            app:layout_constraintBottom_toTopOf="@id/pb_strength"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/gl_statStart"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_strength"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/strength"
+            app:layout_constraintBottom_toTopOf="@id/tv_speed"
+            app:layout_constraintEnd_toStartOf="@id/gl_statStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_intelligence" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/pb_strength"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:max="100"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            app:layout_constraintBottom_toTopOf="@id/pb_speed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/gl_statStart"
+            app:layout_constraintTop_toBottomOf="@id/pb_intelligence" />
+
+        <TextView
+            android:id="@+id/tv_speed"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/speed"
+            app:layout_constraintBottom_toTopOf="@id/tv_durability"
+            app:layout_constraintEnd_toStartOf="@id/gl_statStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_strength" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/pb_speed"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:max="100"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            app:layout_constraintBottom_toTopOf="@id/pb_durability"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/gl_statStart"
+            app:layout_constraintTop_toBottomOf="@id/pb_strength" />
+
+        <TextView
+            android:id="@+id/tv_durability"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/durability"
+            app:layout_constraintBottom_toTopOf="@id/tv_power"
+            app:layout_constraintEnd_toStartOf="@id/gl_statStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_speed" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/pb_durability"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:max="100"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            app:layout_constraintBottom_toTopOf="@id/pb_power"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/gl_statStart"
+            app:layout_constraintTop_toBottomOf="@id/pb_speed" />
+
+        <TextView
+            android:id="@+id/tv_power"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/power"
+            app:layout_constraintBottom_toTopOf="@id/tv_combat"
+            app:layout_constraintEnd_toStartOf="@id/gl_statStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_durability" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/pb_power"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:max="100"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            app:layout_constraintBottom_toTopOf="@id/pb_combat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/gl_statStart"
+            app:layout_constraintTop_toBottomOf="@id/pb_durability" />
+
+        <TextView
+            android:id="@+id/tv_combat"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/combat"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/gl_statStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_power" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/pb_combat"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:max="100"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/gl_statStart"
+            app:layout_constraintTop_toBottomOf="@id/pb_power" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_statStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="90dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_imageEnd"
+        android:id="@+id/gl_textDivide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="163dp" />
+        app:layout_constraintGuide_begin="151dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_imageBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="175dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

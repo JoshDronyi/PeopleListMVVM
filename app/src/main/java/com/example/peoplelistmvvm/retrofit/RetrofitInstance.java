@@ -13,9 +13,11 @@ public class RetrofitInstance {
 
 
     private static class RetrofitInstanceHolder{
+        private static GsonConverterFactory factory = GsonConverterFactory.create();
+
         static final Retrofit INSTANCE = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(factory)
                 .build();
     }
 
